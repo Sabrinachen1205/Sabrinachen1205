@@ -3,7 +3,7 @@
 - 🌱 I’m currently learning ChatGPT. 
 - 💞️ I’m looking to collaborate on EE-class. 
 - 📫 How to reach me Homework. 
-- 以下是根據您提供的JavaScript運算子的練習題目的答案和解釋：
+- 以下是根據您提供的JavaScript運算子的Ch3.練習題目的答案和解釋：
 
 (1) 2的10次方可以使用`Math.pow(2, 10)`或者`2 ** 10`來計算。
 javascript
