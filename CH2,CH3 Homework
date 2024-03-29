@@ -1,0 +1,7 @@
+function getAreal(radius){
+  var area = 3.14 * radius * radius;
+  window.alert('半徑為' + radius + '的圓面積為' + area);
+}
+
+var circleRadius = window.prompt('請輸入半徑', '');
+getAreal(circleRadius);
