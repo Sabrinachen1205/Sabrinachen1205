@@ -1,0 +1,56 @@
+CH7
+(1) 假設有一個函式如下，請簡單說明這個函式的意義為何?
+function divide(a,b){
+  try{
+    if (b===0){
+      throw new Error('除數不能為零');
+    }
+    return a/b;
+  } catch(e){
+    console.log(e.message);
+    return null;
+  } finally{
+    console.log('執行完畢');
+  }
+}
+
+試問下面的敘述會在主控台顯示什麼結果?
+console.log(divide(10,5));
+console.log(divide(0,5));
+console.log(divide(10,0));
+
+Answer:
+這個函式名為`divide`，接受兩個參數`a`和`b`，並試圖將`a`除以`b`。
+首先，它檢查如果`b`等於零，則拋出一個錯誤。如果沒有錯誤發生，它將返回`a`除以`b`的結果。
+在這個函式中，使用了try-catch-finally結構，try塊內是可能引發錯誤的程式碼，
+catch塊捕獲並處理try塊中的錯誤，而finally塊則是無論是否有錯誤發生都會執行的程式碼。
+在catch塊中，錯誤的訊息會被記錄並返回null。最後，不管是否有錯誤，finally塊都會執行，並顯示一條訊息"執行完畢"。
+因此，這個函式的意義是將一個數字除以另一個數字，同時處理除以零的錯誤，並在執行完畢後顯示一條訊息。
+
+主控台顯示
+執行完畢
+2
+執行完畢
+0
+除數不能為零
+執行完畢
+null
+
+(2) 假設您正在開發一個註頁面，需要確保使用者的密碼長度至少要有8個字元。
+請寫一個函式來檢查使用者輸入的密碼是否符合要求。
+若符合要求，就傳回true，否則就傳回false，並在catch區塊中顯示錯誤訊息，在finally區塊中顯示密碼[檢查完畢]。
+
+Answer:
+function checkPassword(password) {
+    try {
+        if (password.length < 8) {
+            throw new Error('密碼長度至少要有8個字元');
+        }
+        return true;
+    } catch (error) {
+        console.log(error.message);
+        return false;
+    } finally {
+        console.log('密碼檢查完畢');
+    }
+}
