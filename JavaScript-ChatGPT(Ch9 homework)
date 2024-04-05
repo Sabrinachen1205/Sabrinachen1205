@@ -1,0 +1,106 @@
+CH9
+(1) 寫一個網頁，當滑鼠指標移到一個元素時，該元素的背景色彩會改變。
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Background Color on Hover</title>
+<style>
+    .hover-element {
+        width: 200px;
+        height: 200px;
+        background-color: lightgray;
+        transition: background-color 0.3s ease;
+    }
+
+    .hover-element:hover {
+        background-color: lightblue;
+    }
+</style>
+</head>
+<body>
+    <div class="hover-element"></div>
+
+    <script>
+        var hoverElement = document.querySelector('.hover-element');
+
+        hoverElement.addEventListener('mouseover', function() {
+            this.style.backgroundColor = 'lightblue';
+        });
+
+        hoverElement.addEventListener('mouseout', function() {
+            this.style.backgroundColor = 'lightgray';
+        });
+    </script>
+</body>
+</html>
+
+(2) 寫一個網頁，當使用者在表單中輸入文字時，會即時顯示數入字元的長度。
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Character Count</title>
+</head>
+<body>
+    <form>
+        <label for="inputText">請輸入文字:</label>
+        <input type="text" id="inputText" name="inputText">
+    </form>
+    <p id="charCount">字元數: 0</p>
+
+    <script>
+        var inputText = document.getElementById('inputText');
+        var charCount = document.getElementById('charCount');
+
+        inputText.addEventListener('input', function() {
+            var textLength = this.value.length;
+            charCount.textContent = '字元數: ' + textLength;
+        });
+    </script>
+</body>
+</html>
+
+(3) 寫一個網頁，表單中有四個文字方塊，當使用者按[Tab]鍵時，就會依序在這些文字方塊切換焦點。
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tab Focus Example</title>
+</head>
+<body>
+    <form>
+        <label for="input1">文字方塊1:</label>
+        <input type="text" id="input1" name="input1"><br><br>
+
+        <label for="input2">文字方塊2:</label>
+        <input type="text" id="input2" name="input2"><br><br>
+
+        <label for="input3">文字方塊3:</label>
+        <input type="text" id="input3" name="input3"><br><br>
+
+        <label for="input4">文字方塊4:</label>
+        <input type="text" id="input4" name="input4"><br><br>
+    </form>
+
+    <script>
+        var inputs = document.querySelectorAll('input');
+
+        inputs.forEach(function(input, index) {
+            input.addEventListener('keydown', function(event) {
+                if (event.key === 'Tab') {
+                    event.preventDefault();
+                    var nextIndex = index === inputs.length - 1 ? 0 : index + 1;
+                    inputs[nextIndex].focus();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
