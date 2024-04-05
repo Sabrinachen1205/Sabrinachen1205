@@ -1,0 +1,60 @@
+CH8-1
+(1) 寫一個函式用來切換一個HTML元素的顯示與隱藏，'當元素是隱藏時，點取按鈕會將元素顯示出來;當元素是顯示時，點取按鈕會將元素隱藏起來。
+function toggleVisibility(elementId) {
+    var element = document.getElementById(elementId);
+    if (element.style.display === 'none') {
+        element.style.display = 'block';
+    } else {
+        element.style.display = 'none';
+    }
+}
+
+(2) 寫一個函式用來在清單中加入新項目。
+
+function addItemToList(listId, newItem) {
+    var list = document.getElementById(listId);
+    var listItem = document.createElement('li');
+    listItem.textContent = newItem;
+    list.appendChild(listItem);
+}
+
+CH8-2
+寫一個網頁，開頭有標題1的字串[Hello, world]，接這是一組選擇鈕，有紅色、綠色、藍色等三個項目，
+當使用者核取顏色並點取[改變顏色]按鈕時，字串就會變成選擇的顏色。
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Color Example</title>
+<style>
+    #message {
+        font-size: 24px;
+    }
+</style>
+</head>
+<body>
+    <h1 id="message">Hello, world</h1>
+    <form id="colorForm">
+        <input type="radio" name="color" value="red"> 紅色
+        <input type="radio" name="color" value="green"> 綠色
+        <input type="radio" name="color" value="blue"> 藍色
+        <button type="button" onclick="changeColor()">改變顏色</button>
+    </form>
+
+    <script>
+        function changeColor() {
+            var colorForm = document.getElementById('colorForm');
+            var selectedColor = colorForm.querySelector('input[name="color"]:checked');
+
+            if (selectedColor) {
+                var message = document.getElementById('message');
+                message.style.color = selectedColor.value;
+            } else {
+                alert('請選擇一種顏色');
+            }
+        }
+    </script>
+</body>
+</html>
